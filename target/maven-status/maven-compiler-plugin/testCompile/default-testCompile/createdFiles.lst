@@ -1,0 +1,11 @@
+com/jd/tddtest/category/PerformanceTests.class
+com/jd/tddtest/assertions/ArrayAssertionTest.class
+com/jd/tddtest/category/RegressionTests.class
+com/jd/tddtest/assertions/ListAssertionTest.class
+com/jd/tddtest/upandteardown/SetUpAndTearDownTest.class
+com/jd/tddtest/assertions/ObjectAssertionTest.class
+com/jd/tddtest/category/MultipleTests.class
+com/jd/tddtest/category/PerformanceCategoryTests.class
+com/jd/tddtest/assertions/MapAssertionTest.class
+com/jd/tddtest/assertions/BooleanAssertionTest.class
+com/jd/tddtest/category/RegressionCategoryTests.class
