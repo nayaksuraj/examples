@@ -10,19 +10,21 @@ import static org.junit.Assert.assertTrue;
 
 public class BooleanAssertionTest {
 
-    private static final boolean FALSE = false;
-    private static final boolean TRUE = true;
+    //private static final boolean FALSE = false;
+    //private static final boolean TRUE = true;
+
+    BooleanAssertionDemo booleanAssertionDemo = new BooleanAssertionDemo();
 
     @Test
     public void booleanShouldBeTrue() {
-        assertTrue(TRUE);
-        assertTrue("isTrue should be true but was false", TRUE);
+        assertTrue(booleanAssertionDemo.TRUE());
+        assertTrue("isTrue should be true but was false", booleanAssertionDemo.TRUE());
     }
 
     @Test
     public void booleanShouldBeFalse() {
-        assertFalse(FALSE);
-        assertFalse("isFalse should be false but was true", FALSE);
+        assertFalse(booleanAssertionDemo.FALSE());
+        assertFalse("isFalse should be false but was true", booleanAssertionDemo.FALSE());
     }
 
     @Test

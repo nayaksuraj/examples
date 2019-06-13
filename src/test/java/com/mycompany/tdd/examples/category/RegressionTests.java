@@ -21,4 +21,9 @@ public class RegressionTests {
         assertThat(1 == 1, is(true));
     }
 
+    @Test
+    public void reg_test3() {
+        assertThat(1 == 1, is(true));
+    }
+
 }

@@ -15,7 +15,6 @@ public class MultipleTests {
         assertThat(1 == 1, is(true));
     }
 
-    @Category(RegressionTests.class)
     @Test
     public void multiple_category_2() {
         assertThat(1 == 1, is(true));

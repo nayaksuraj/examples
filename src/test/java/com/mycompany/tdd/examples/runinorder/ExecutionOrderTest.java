@@ -1,4 +1,4 @@
-package com.mycompany.tdd.examples.runparticularorder;
+package com.mycompany.tdd.examples.runinorder;
 
 /**
     In JUnit, you can use @FixMethodOrder(MethodSorters.NAME_ASCENDING)
