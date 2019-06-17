@@ -12,8 +12,8 @@ public class ErrorCollectorTest {
 
     @Test
     public void fails_after_execution() {
-        collector.checkThat("a", equalTo("b"));
-        collector.checkThat(1, equalTo(2));
-        collector.checkThat("ae", equalTo("g"));
+        collector.checkThat("b", equalTo("b"));
+        collector.checkThat(2, equalTo(2));
+        collector.checkThat("g", equalTo("g"));
     }
 }

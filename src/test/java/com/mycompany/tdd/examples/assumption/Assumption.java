@@ -15,7 +15,7 @@ public class Assumption {
 
     @Test
     public void testCheckServerisRunning() throws Exception {
-        isSonarRunning = true;
+        isSonarRunning = false;
         Assume.assumeFalse(isSonarRunning);
         assertTrue(true);
     }

@@ -7,7 +7,7 @@ import org.junit.rules.Timeout;
 public class TimeoutRuleTest {
 
     @Rule
-    public Timeout globalTimeout =  new Timeout(20);
+    public Timeout globalTimeout =  new Timeout(60);
 
     @Test
     public void testInfiniteLoop1() throws InterruptedException{

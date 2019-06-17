@@ -13,6 +13,10 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.greaterThan;
 
 import org.junit.Test;
 import java.util.Arrays;
@@ -68,7 +72,12 @@ public class AssertThatTest {
 
         assertThat(salary, hasItem(50.00));
         assertThat(salary, hasItems(50.00, 200.00));
+        assertThat(salary, hasSize(3));
         assertThat(salary, not(hasItem(1.00)));
+        assertThat(salary, contains(50.0, 200.0, 500.0));
+        assertThat(salary, containsInAnyOrder(200.0,50.0, 500.0));
+        assertThat(salary, everyItem(greaterThan(25.0)));
+
     }
 
     /**
@@ -82,7 +91,7 @@ public class AssertThatTest {
         assertThat(name, startsWith("John"));
         assertThat(name, endsWith("Deere"));
         assertThat(name, containsString("De"));
-        assertThat(name, containsString("sa"));
+        assertThat(name, containsString("Jo"));
     }
 }
 

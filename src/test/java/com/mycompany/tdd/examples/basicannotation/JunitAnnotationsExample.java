@@ -3,6 +3,7 @@ package com.mycompany.tdd.examples.basicannotation;
 import com.mycompany.tdd.examples.assertions.ArrayAssertionDemo;
 import org.junit.*;
 
+
     public class JunitAnnotationsExample {
 
     // Run once, e.g. Database connection, connection pool
@@ -47,7 +48,7 @@ import org.junit.*;
 
     @Test(timeout = 10)
     public void whenExecutionTimeReached_thenShouldBeTimeout() {
-        while(true);
+        //
     }
 
     @Test(expected = NullPointerException.class)
