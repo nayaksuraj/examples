@@ -11,12 +11,12 @@ import static org.junit.Assert.assertTrue;
 
 public class Assumption {
 
-    boolean isSonarRunning = false;
+    boolean isSomeServiceRunning = false;
 
     @Test
     public void testCheckServerisRunning() throws Exception {
-        isSonarRunning = false;
-        Assume.assumeFalse(isSonarRunning);
+        isSomeServiceRunning = false;
+        Assume.assumeFalse(isSomeServiceRunning);
         assertTrue(true);
     }
 
