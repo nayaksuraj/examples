@@ -17,19 +17,21 @@ public class EmployeeController {
 	
 	@PutMapping("/employee")
 	public Employee addEmployee(@RequestBody Employee employee){
-		// WRITE CODE HERE
+		employee = employeeService.addEmployee(employee);
 		return employee;
 	}
 	
 	@GetMapping("/employees")
 	public List<Employee> showEmployees(){
-		// WRITE CODE HERE
+		System.out.println("Employee listing called");
+		List<Employee> employees = employeeService.listEmployees();
+		System.out.println("Employee listing returninig " + employees);
 		return employees;
 	}
 	
 	@PostMapping("/employee")
 	public Employee updateEmployee(@RequestBody Employee employee) {
-		// WRITE CODE HERE
+		employee = employeeService.updateEmployee(employee);
 		return employee;
 	}
 	

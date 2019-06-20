@@ -61,14 +61,35 @@ public class EmployeeServiceTest {
 
 	@Test
 	public void testEmployeeListing() {
-		// WRITE CODE HERE
+		List<EmployeeEntity> employees = new ArrayList<EmployeeEntity>();
+		employees.add(
+				new EmployeeEntity(123123L, "Suraj", "Nayak", 300, new DepartmentEntity(12321L,"IT", "IT101"))
+				);
+		Mockito.when(employeeRepository.findAll()).thenReturn(employees);
+		
+		List<Employee> employes = employeeService.listEmployees();
+		assertThat(employes).isNotEmpty();
+		assertThat(employes).hasSize(1);
+		assertThat(employes.get(0).getFirstName()).isEqualTo("Suraj");
 		
 	}
 	
 	
 	@Test
 	public void testAddingEmployee() {
-		// WRITE CODE HERE
+		Employee newEmployee = new Employee(null, "test123", "last123", 3000, "IT");
+		
+		Mockito.when(departmentRepository.findFirst1ByName(newEmployee.getDepartment()))
+			.thenReturn(new DepartmentEntity(1212L, newEmployee.getDepartment(), "IT101"));
+		
+		Mockito.when(employeeRepository.save(ArgumentMatchers.any(EmployeeEntity.class)))
+		.thenReturn(new EmployeeEntity(123123L, "test123", "last123", 3000, new DepartmentEntity(1212L,"IT", "IT101")));
+		
+		Employee savedEmployee = employeeService.addEmployee(newEmployee);
+		System.out.println(savedEmployee);
+		assertThat(savedEmployee).isNotNull();
+		assertThat(savedEmployee.getEmployeeId()).isNotNull();
+//		assertThat(employeeRepository.findByFirstName("test123")).isNotNull();
 	}
 
 }
