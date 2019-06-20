@@ -18,7 +18,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import com.example.cars.models.Car;
 
 /**
- * @author <ro6ley.github.io>
+ *
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = CarsApplication.class,

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * The type Car controller.
  *
- * @author Robley Gori - ro6ley.github.io
+ *
  */
 @RestController
 @RequestMapping("/api/v1")

@@ -20,7 +20,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
  * - Name
  * - Number of doors
  * 
- * @author Robley Gori - ro6ley.github.io
+ *
  */
 @Entity
 @Table(name = "cars")   // the table in the database that will contain our cars data
