@@ -38,7 +38,7 @@ public class JpaPrjApplicationTests {
 	@Before
 	public void setUp() throws Exception {
 		DepartmentEntity departmentEntity = departmentRepository.save(new DepartmentEntity(12312L, "IT", "IT101"));
-		System.out.println("Saved Employee " + employeeRepository.save(new EmployeeEntity(123123L, "bhavesh", "zambare", 3000, departmentEntity)));
+		System.out.println("Saved Employee " + employeeRepository.save(new EmployeeEntity(123123L, "Ashish", "Nanotakar", 3000, departmentEntity)));
 	}
 
 	@Test
@@ -47,7 +47,7 @@ public class JpaPrjApplicationTests {
 		mockMvc.perform(get("/employees")
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$[0].firstname", is("bhavesh")));
+				.andExpect(jsonPath("$[0].firstname", is("Ashish")));
 
 	}
 
