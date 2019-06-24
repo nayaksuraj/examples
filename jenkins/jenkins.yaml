@@ -9,22 +9,19 @@ jenkins:
       users:
         - id: "test"
           password: "test"
-authorizationStrategy:
-    globalMatrix:
-      permissions:
-        - "Overall/Read:anonymous"
-        - "Overall/Administer:authenticated"
-tool:
-  maven:
-    installations:
-      - name: maven
-        home: /bin/mvn
-        properties:
-          - installSourceProperty:
-              installers:
-                - mavenInstaller:
-                  id: "3.6.1"
-  git:
-    installations:
-      - name: git
-        home: /bin/git
+security:
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy:
+          specificUsersAuthorizationStrategy:
+            userid: admin
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          scope: GLOBAL
+          id: artifactory_server
+          username: admin
+          password: admin1234
