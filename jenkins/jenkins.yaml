@@ -25,3 +25,14 @@ credentials:
           id: artifactory_server
           username: admin
           password: admin1234
+jobs:
+  - script: >
+      job('DempPipeline') {
+          scm {
+              git("https://github.com/nayaksuraj/tdd-junit4-examples.git")
+          }
+          steps {
+              maven('-e clean test')
+          }
+      }
+  - file: DempPipeline.groovy

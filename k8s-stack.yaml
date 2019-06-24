@@ -1,0 +1,66 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: examle-app
+  namespace: devel
+  labels:
+    app: examle-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: examle-app
+  template:
+    metadata:
+      labels:
+        app: examle-app
+    spec:
+      containers:
+      - name: examle-app
+        image: nanotkarashish/example_app:latest
+        ports:
+        - containerPort: 8080
+      - name: mysql
+        image: mysql:5.7
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "password"
+        ports:
+        - containerPort: 3306
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: examle-app
+  name: examle-app
+  namespace: devel
+spec:
+  ports:
+  - name: web
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: examle-app
+
+---
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: examle-app
+  namespace: devel
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: examle-app.devel.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: examle-app
+          servicePort: 8080
