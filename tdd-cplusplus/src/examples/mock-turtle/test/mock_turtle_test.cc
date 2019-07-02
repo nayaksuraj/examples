@@ -1,9 +1,9 @@
-#include "mock_turtle.h"
-#include "painter.h"
-
+#include "../mock_turtle.h"
+#include "../painter.h"
 #include "gtest/gtest.h"
 
 using ::testing::AtLeast;
+
 TEST(PainterTest, CanDrawSomething) {
   MockTurtle turtle;
   EXPECT_CALL(turtle, PenDown())

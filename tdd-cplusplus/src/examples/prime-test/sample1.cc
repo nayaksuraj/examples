@@ -1,4 +1,4 @@
-#include "sample1.h"
+#include "../prime-test/sample1.h"
 
 // Returns n! (the factorial of n).  For negative n, n! is defined to be 1.
 int Factorial(int n) {
@@ -6,6 +6,7 @@ int Factorial(int n) {
   for (int i = 1; i <= n; i++) {
     result *= i;
   }
+
 
   return result;
 }

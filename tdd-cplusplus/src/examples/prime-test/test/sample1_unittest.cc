@@ -1,5 +1,6 @@
+#include "../../prime-test/sample1.h"
+
 #include <limits.h>
-#include "sample1.h"
 #include "gtest/gtest.h"
 
 namespace {
@@ -22,12 +23,22 @@ TEST(FactorialTest, Zero) {
 
 // Tests factorial of positive numbers.
 TEST(FactorialTest, Positive) {
-  EXPECT_EQ(-1, Factorial(1)) << "Actual value for FactorialTest can not be negative" ;
+
+  SCOPED_TRACE("this is debug");
+  EXPECT_EQ(1, Factorial(1)) << "Actual value for FactorialTest can not be negative" ;
   EXPECT_EQ(2, Factorial(2));
   EXPECT_EQ(6, Factorial(3));
   EXPECT_EQ(40320, Factorial(8));
+
 }
 
+
+TEST(SomeTest, Positive) {
+	EXPECT_EQ(1,2);
+	EXPECT_EQ(2,2);
+
+	EXPECT_EQ(3,3);
+}
 
 // Tests IsPrime()
 
@@ -42,6 +53,8 @@ TEST(IsPrimeTest, Negative) {
 
 // Tests some trivial cases.
 TEST(IsPrimeTest, Trivial) {
+
+
   EXPECT_FALSE(IsPrime(0));
   EXPECT_FALSE(IsPrime(1));
   EXPECT_TRUE(IsPrime(2));

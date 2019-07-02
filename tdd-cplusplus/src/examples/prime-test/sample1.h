@@ -3,4 +3,3 @@ int Factorial(int n);
 
 // Returns true iff n is a prime number.
 bool IsPrime(int n);
-

@@ -1,5 +1,3 @@
-#ifndef GTEST_SAMPLES_SAMPLE2_H_
-#define GTEST_SAMPLES_SAMPLE2_H_
 
 #include <string.h>
 
@@ -14,9 +12,6 @@ class MyString {
   // Clones a 0-terminated C string, allocating memory using new.
   static const char* CloneCString(const char* a_c_string);
 
-  ////////////////////////////////////////////////////////////
-  //
-  // C'tors
 
   // The default c'tor constructs a NULL string.
   MyString() : c_string_(nullptr) {}
@@ -47,4 +42,3 @@ class MyString {
 };
 
 
-#endif  // GTEST_SAMPLES_SAMPLE2_H_

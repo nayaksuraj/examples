@@ -1,4 +1,4 @@
-#include "sample2.h"
+#include "../sample2.h"
 #include "gtest/gtest.h"
 namespace {
 
