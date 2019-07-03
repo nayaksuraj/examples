@@ -7,7 +7,12 @@ using ::testing::AtLeast;
 using ::testing::Return;
 
 TEST(PainterTest, CanDrawSomething) {
-  // WRITE YOUR CODE
+  MockTurtle turtle;
+  EXPECT_CALL(turtle, PenDown()).Times(AtLeast(1));
+
+  Painter painter(&turtle);
+
+  EXPECT_TRUE(painter.DrawCircle(0, 0, 10));
 
 
 }
@@ -16,5 +21,8 @@ TEST(PainterTest, CanDrawSomething) {
 TEST(PainterTest, CanDrawSomething2) {
   MockTurtle turtle;
 
-  //WRITE YOUR CODE 
+  EXPECT_CALL(turtle, GetX()).Times(AtLeast(2));
+  ON_CALL(turtle, GetX()).WillByDefault(Return(1));
+  EXPECT_EQ(turtle.GetX(),1);
+  EXPECT_EQ(turtle.GetX(),1);
 }
