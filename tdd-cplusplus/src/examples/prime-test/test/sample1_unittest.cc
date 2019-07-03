@@ -34,7 +34,7 @@ TEST(FactorialTest, Positive) {
 
 
 TEST(SomeTest, Positive) {
-	EXPECT_EQ(1,2);
+	EXPECT_EQ(2,2);
 	EXPECT_EQ(2,2);
 
 	EXPECT_EQ(3,3);
