@@ -80,6 +80,10 @@ $ bin/logstash -f logstash.conf
 
 ```
 
+```
+What is the difference between Logstash and Beats?
+More content will come here ...
+```
 
 
 ```
