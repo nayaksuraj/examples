@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 class ELKDemoController {
-    private static final Logger LOG = Logger.getLogger(ELKController.class.getName());
+    private static final Logger LOG = Logger.getLogger(ELKDemoController.class.getName());
 
     @Autowired
     RestTemplate restTemplete;
