@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
+
 class ELKDemoController {
     private static final Logger LOG = Logger.getLogger(ELKDemoController.class.getName());
 
@@ -27,6 +28,14 @@ class ELKDemoController {
     @RequestMapping(value = "/elk-demo")
     public String helloWorld() {
         String response = "Welcome to Spring boot ELK demo : " + new Date();
+        LOG.log(Level.INFO, response);
+
+        return response;
+    }
+
+    @RequestMapping(value = "/elk-demo-password")
+    public String elkPasswordMasking() {
+        String response = "Password Masking Demo: pass123";
         LOG.log(Level.INFO, response);
 
         return response;
