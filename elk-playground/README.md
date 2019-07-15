@@ -1,6 +1,5 @@
-```
 Scenario: As as developer I wanted to setup monitoring (Analyze springboot logs using ELK stack.), CI/CD for springboot application.
-```
+
 
 ```
 ELK Stands for ElasticSearch, Logstash and Kibana
@@ -86,7 +85,9 @@ $ bin/logstash -f logstash.conf
 ```
 What is ElasticSearch ?
 
-Elastic search is full distributed nosql database (enterprise search) and analytics engine. It is built on the Apache Lucene search engine library and exposes data through REST and Java APIs. Elasticsearch is scalable and is built to be used by distributed systems.
+Elastic search is full distributed nosql database (enterprise search) and analytics engine. 
+It is built on the Apache Lucene search engine library and exposes data through REST and Java APIs. 
+Elasticsearch is scalable and is built to be used by distributed systems.
 
 Basic Concepts of ElasticSearch:
 
