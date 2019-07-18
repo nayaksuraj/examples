@@ -75,3 +75,5 @@ workflow-step-api:2.19
 workflow-support:3.3
 ws-cleanup:0.37
 artifactory:3.2.2
+sonar:2.8.1
+maven-plugin:3.3
