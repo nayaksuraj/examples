@@ -3,7 +3,7 @@
 1. Start the ELK stack using `docker-compose`:
 
 ```console
-$ docker-compose up
+$ docker-compose build && docker-compose up
 ```
 # OR
 
