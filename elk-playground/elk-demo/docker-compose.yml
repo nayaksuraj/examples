@@ -45,7 +45,7 @@ services:
       - elk
     depends_on:
       - elasticsearch
-      
+
   redismaster:
     build:
       context: redis/
@@ -56,6 +56,18 @@ services:
     depends_on:
       - elasticsearch
 
+  kibana:
+    build:
+      context: kibana/
+    volumes:
+      - ./kibana/config/:/usr/share/kibana/config:ro
+    ports:
+      - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+      
 networks:
 
   elk:
