@@ -3,7 +3,7 @@ Scenario: As as developer I wanted to setup monitoring (Analyze springboot logs 
 
 ```
 ELK Stands for ElasticSearch, Logstash and Kibana
-Some elk related images will come here.. 
+Some elk related images will come here..
 ```
 
 Installations:
@@ -23,7 +23,7 @@ $ curl http://localhost:9200
 
 ```
 
-Kibana: 
+Kibana:
 
 $ wget https://artifacts.elastic.co/downloads/kibana/kibana-5.1.1-darwin-x86_64.tar.gz
 $ tar xvzf kibana-5.1.1-darwin-x86_64.tar.gz
@@ -89,8 +89,8 @@ More content will come here ...
 ```
 What is ElasticSearch ?
 
-Elastic search is full distributed nosql database (enterprise search) and analytics engine. 
-It is built on the Apache Lucene search engine library and exposes data through REST and Java APIs. 
+Elastic search is full distributed nosql database (enterprise search) and analytics engine.
+It is built on the Apache Lucene search engine library and exposes data through REST and Java APIs.
 Elasticsearch is scalable and is built to be used by distributed systems.
 
 Basic Concepts of ElasticSearch:
@@ -101,7 +101,7 @@ Shard
 Replicas
 Index
 Documents
-Mapping 
+Mapping
 Schema
 
 More content will come here ...
@@ -116,4 +116,45 @@ More content will come here ...
 ```
 What is kibana ?
 More content will come here ...
+```
+
+
+```
+To see the graph paste the following code on url (https://dreampuf.github.io/GraphvizOnline). This convert code into graph.
+
+
+# comments start with either # or //
+// take your pick :D
+// ### using three #'s might help things line up visually
+// ### everything must be in a digraph{}
+
+digraph SimplestDiagrams {
+    "Redis" [
+        shape=record
+    ]
+
+    "ElasticSearch" [
+        shape=record
+    ]
+
+    "SpringBootApp" [
+        shape=record
+        label="{SpringBootApp}"
+    ]
+
+    "Browser" [
+        shape=record
+        label="{Browser}"
+    ]
+
+
+    SpringBootApp -> LogStashShipper [label=" Read from spring boot log file" arrowhead=crow]
+    LogStashShipper -> Redis [label=" Push to Redis"]
+    Redis -> LogStashIndexer [label=" Pull from Redis" arrowhead=crow]
+    LogStashIndexer -> ElasticSearch [label=" Push to ElasticSearch"]
+    ElasticSearch -> Kibana [label= "Pull from ElasticSearch" arrowhead=crow]
+    Kibana -> Browser [label=" Query on Kibana" arrowhead=crow]
+}
+
+
 ```
