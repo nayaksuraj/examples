@@ -15,17 +15,14 @@ services:
     networks:
       - elk
 
-  logstashshipper:
+  fluentdshipper:
     build:
-      context: logstash-shipper/
+      context: fluentd/
     volumes:
-      - ./logstash-shipper/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
-      - ./logstash-shipper/pipeline:/usr/share/logstash/pipeline:ro
       - ../springbootelkdemo/spring-boot-elk.log:/tmp/spring-boot-elk.log:ro
+      - ./fluentd/conf/fluent.conf:/fluentd/etc/fluent.conf:ro
     ports:
-      - "5000:5000"
-    environment:
-      LS_JAVA_OPTS: "-Xmx512m -Xms512m"
+      - "24224:24224"
     networks:
       - elk
     depends_on:
@@ -67,7 +64,7 @@ services:
       - elk
     depends_on:
       - elasticsearch
-      
+
 networks:
 
   elk:
