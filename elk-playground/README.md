@@ -136,6 +136,6 @@ java 1.8
 ```
 ElasticSearch: localhost:9200
 Kibana: localhost:5601
-Logstash: localhost:5400
+Logstash: localhost:5044
 
 ```

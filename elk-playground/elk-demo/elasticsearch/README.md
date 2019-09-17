@@ -19,3 +19,9 @@ Schema
 More content will come here ...
 
 ```
+
+Docker:
+```
+  $ docker build -t elasticsearch:7.3.2 .
+  $ docker run -d -p 9200:9200 elasticsearch:7.3.2
+```
