@@ -1,4 +1,4 @@
-Scenario: As as developer I wanted to setup monitoring (Analyze springboot logs using ELK stack.), CI/CD for springboot application.
+Scenario: As as developer I wanted to setup monitoring (Analyze springboot logs using ELK stack)
 
 
 ```
