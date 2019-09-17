@@ -39,7 +39,7 @@ Logstash:
 
 $ wget https://artifacts.elastic.co/downloads/logstash/logstash-7.0.0.zip
 $ unzip logstash-7.0.0.zip
-$ vim logstash.conf
+$ cd logstash-7.0.0 && vim logstash.conf and following config into it.
 
 Configuration:
 
@@ -82,7 +82,10 @@ $ bin/logstash -f logstash.conf
 
 ```
 What is the difference between Logstash and Beats?
-More content will come here ...
+
+Beats are lightweight data shippers that you install as agents on your servers to send specific types of operational data to Elasticsearch. Beats have a small footprint and use fewer system resources than Logstash.
+
+Logstash has a larger footprint, but provides a broad array of input, filter, and output plugins for collecting, enriching, and transforming data from a variety of sources.
 ```
 
 
