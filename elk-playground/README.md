@@ -1,4 +1,4 @@
-Scenario: As as developer I wanted to setup monitoring (Analyze springboot logs using ELK stack)
+Scenario: As as developer I wanted to setup logging for my app.
 
 
 ```
