@@ -3,7 +3,7 @@
 $ curl -XGET http://localhost:9200/_cat/indices
 ```
 
-##### create index
+##### Create index
 ```
 $ curl -X PUT http://localhost:9200/maruti
 ```
@@ -13,7 +13,7 @@ $ curl -X PUT http://localhost:9200/maruti
 $ curl -XGET http://localhost:9200/maruti?pretty
 ```
 
-##### ingesting data (user define id)
+##### Ingesting data (user define id)
 ```
 $ curl -X POST -H 'Content-Type: application/json' 'http://localhost:9200/maruti/cars/1' -d \
 '{
@@ -23,7 +23,7 @@ $ curl -X POST -H 'Content-Type: application/json' 'http://localhost:9200/maruti
 }'
 ```
 
-##### ingesting data without user define id (es will create id for you)
+##### Ingesting data without user define id (es will create id for you)
 ```
 $ curl -X POST -H 'Content-Type: application/json' 'http://localhost:9200/maruti/cars' -d \
 '{
