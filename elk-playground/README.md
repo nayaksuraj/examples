@@ -73,7 +73,8 @@ java 1.8
 
     $ ./bin/kibana &
 
-    # You can access Kibana at "http://localhost:5601"
+    # Give Kibana a few seconds to initialize, then access the Kibana web UI by hitting
+    # [http://localhost:5601](http://localhost:5601) with a web browser.
 
 
 
