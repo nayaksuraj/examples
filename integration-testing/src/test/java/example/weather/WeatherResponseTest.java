@@ -1,3 +1,7 @@
+/**
+ * Weather Client Testing
+ */
+
 package example.weather;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,7 +16,7 @@ public class WeatherResponseTest {
     @Test
     public void shouldDeserializeJson() throws Exception {
         String jsonResponse = FileLoader.read("classpath:weatherApiResponse.json");
-        WeatherResponse expectedResponse = new WeatherResponse("Rain");
+        WeatherResponse expectedResponse = new WeatherResponse("Clear");
 
         WeatherResponse parsedResponse = new ObjectMapper().readValue(jsonResponse, WeatherResponse.class);
 

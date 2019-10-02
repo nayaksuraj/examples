@@ -18,7 +18,7 @@ import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class WeatherAcceptanceTest {
+public class ExternalWeatherIntegrationTest {
 
     @LocalServerPort
     private int port;
@@ -29,7 +29,7 @@ public class WeatherAcceptanceTest {
 
     @Test
     public void shouldReturnYesterdaysWeather() throws Exception {
-        wireMockRule.stubFor(get(urlPathEqualTo("/3f3adfb3bc5deb1270c4124f766675af/53.5511,9.9937"))
+        wireMockRule.stubFor(get(urlPathEqualTo("/some-test-api-key/18.5204,73.8567"))
                 .willReturn(aResponse()
                         .withBody(FileLoader.read("classpath:weatherApiResponse.json"))
                         .withHeader(CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
@@ -39,7 +39,7 @@ public class WeatherAcceptanceTest {
                 .get(String.format("http://localhost:%s/weather", port))
                 .then()
                 .statusCode(is(200))
-                .body(containsString("Rain"));
+                .body(containsString("Clear"));
     }
 
 }

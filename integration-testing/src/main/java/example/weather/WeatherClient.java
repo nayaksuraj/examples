@@ -11,8 +11,8 @@ import java.util.Optional;
 @Component
 public class WeatherClient {
 
-    private static final String LATITUDE = "53.5511";
-    private static final String LONGITUDE = "9.9937";
+    private static final String LATITUDE = "18.5204";
+    private static final String LONGITUDE = "73.8567";
     private final RestTemplate restTemplate;
     private final String weatherServiceUrl;
     private final String weatherServiceApiKey;

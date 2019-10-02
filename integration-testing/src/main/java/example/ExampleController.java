@@ -35,10 +35,15 @@ public class ExampleController {
         return foundPerson
                 .map(person -> String.format("Hello %s %s!", person.getFirstName(), person.getLastName()))
                 .orElse(String.format("Who is this '%s' you're talking about?", lastName));
+
     }
 
     @GetMapping("/weather")
     public String weather() {
+
+        WeatherResponse weatherResponse = new WeatherResponse();
+        //System.out.print(weatherResponse.getSummary());
+
         return weatherClient.fetchWeather()
                 .map(WeatherResponse::getSummary)
                 .orElse("Sorry, I couldn't fetch the weather for you :(");

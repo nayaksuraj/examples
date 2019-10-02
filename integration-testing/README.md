@@ -1,32 +1,29 @@
-# Testing Spring boot Application
+## Get started
 
-#### Application Architecture
+### 1. Set an API Key as Environment Variable
+In order to run the service, you need to set the `WEATHER_API_KEY` environment variable to a valid API key retrieved from [darksky.net](http://darksky.net).
 
-```
- ╭┄┄┄┄┄┄┄╮      ┌──────────┐      ┌──────────┐
- ┆   ☁   ┆  ←→  │    ☕     │  ←→  │    💾    │
- ┆  Web  ┆ HTTP │  Spring  │      │ Database │
- ╰┄┄┄┄┄┄┄╯      │  Service │      └──────────┘
-                └──────────┘
-                     ↑ JSON/HTTP
-                     ↓
-                ┌──────────┐
-                │    ☁     │
-                │ Weather  │
-                │   API    │
-                └──────────┘
+A simple way is to rename the `env.sample` file to `.env`, fill in your API key from `darksky.net` and source it before running your application:
+
+```bash
+source .env
 ```
 
-  It stores `Person`s in an in-memory database (using _Spring Data_) and provides a _REST_ interface with three endpoints:
+### 2. Start a PostgreSQL database
+The easiest way is to use the provided `startDb.sh` script. This script starts a Docker container which contains a database with the following configuration:
+    
+  * port: `15432`
+  * username: `postgres`
+  * password: `postgres`
+  * database name: `postgres`
+  
+### 3. Run the Application
+Once you've provided the API key and started a PostgreSQL database you can run the application using
 
-  * `GET /hello`: Returns _"Hello World!"_. Always.
-  * `GET /hello/{lastname}`: Looks up the person with `lastname` as its last name and returns _"Hello {Firstname} {Lastname}"_ if that person is found.
-  * `GET /weather`: Calls a downstream [weather API](https://darksky.net) via HTTP and returns a summary for the current weather conditions in Pune, India
-  
-  
-  
-  #### maven commands
-  
-  * mvn spring-boot:run
-  * mvn test
-  * mvn package
+```bash
+mvn spring-boot:run
+mvn test
+
+```
+
+The application will start on port `8080` so you can send a sample request to `http://localhost:8080/hello` to see if you're up and running.

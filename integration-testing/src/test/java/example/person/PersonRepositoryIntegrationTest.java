@@ -1,3 +1,7 @@
+/**
+    In memory database testing.
+ */
+
 package example.person;
 
 import org.junit.After;
@@ -17,20 +21,19 @@ import static org.junit.Assert.assertThat;
 public class PersonRepositoryIntegrationTest {
 
     @Autowired
-    private PersonRepository subject;
+    private PersonRepository personRepository;
 
     @After
     public void tearDown() throws Exception {
-        subject.deleteAll();
+        personRepository.deleteAll();
     }
 
     @Test
     public void shouldSaveAndFetchPerson() throws Exception {
         Person name = new Person("Suraj", "Nayak");
-        subject.save(name);
+        personRepository.save(name);
 
-        Optional<Person> maybeSuraj = subject.findByLastName("Nayak");
-
+        Optional<Person> maybeSuraj = personRepository.findByLastName("Nayak");
         assertThat(maybeSuraj, is(Optional.of(name)));
     }
 }

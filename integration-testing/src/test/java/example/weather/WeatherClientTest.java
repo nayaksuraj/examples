@@ -1,3 +1,7 @@
+/**
+ * Weather Client Testing
+ */
+
 package example.weather;
 
 import org.junit.Before;
@@ -18,7 +22,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 @RunWith(SpringRunner.class)
 public class WeatherClientTest {
 
-    private WeatherClient subject;
+    private WeatherClient weatherClient;
 
     @Mock
     private RestTemplate restTemplate;
@@ -26,28 +30,33 @@ public class WeatherClientTest {
     @Before
     public void setUp() throws Exception {
         initMocks(this);
-        subject = new WeatherClient(restTemplate, "http://localhost:8089", "someAppId");
+        weatherClient = new WeatherClient(restTemplate, "http://localhost:8089", "someAppId");
     }
 
     @Test
     public void shouldCallWeatherService() throws Exception {
-        WeatherResponse expectedResponse = new WeatherResponse("light rain");
-        given(restTemplate.getForObject("http://localhost:8089/someAppId/53.5511,9.9937", WeatherResponse.class))
+        WeatherResponse expectedResponse = new WeatherResponse("Clear");
+        given(restTemplate.getForObject("http://localhost:8089/someAppId/18.5204,73.8567", WeatherResponse.class))
                 .willReturn(expectedResponse);
 
-        Optional<WeatherResponse> actualResponse = subject.fetchWeather();
+        Optional<WeatherResponse> actualResponse = weatherClient.fetchWeather();
 
         assertThat(actualResponse, is(Optional.of(expectedResponse)));
+
+        //System.out.println(actualResponse);
     }
 
     @Test
     public void shouldReturnEmptyOptionalIfWeatherServiceIsUnavailable() throws Exception {
-        given(restTemplate.getForObject("http://localhost:8089/someAppId/53.5511,9.9937", WeatherResponse.class))
+        given(restTemplate.getForObject("http://localhost:8089/someAppId/18.5204,73.8567", WeatherResponse.class))
                 .willThrow(new RestClientException("something went wrong"));
 
-        Optional<WeatherResponse> actualResponse = subject.fetchWeather();
+        Optional<WeatherResponse> actualResponse = weatherClient.fetchWeather();
 
         assertThat(actualResponse, is(Optional.empty()));
+
+
+        //System.out.println(actualResponse);
 
     }
 

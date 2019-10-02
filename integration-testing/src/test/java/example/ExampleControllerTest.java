@@ -18,7 +18,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class ExampleControllerTest {
 
-    private ExampleController subject;
+    private ExampleController exampleController;
 
     @Mock
     private PersonRepository personRepository;
@@ -30,12 +30,12 @@ public class ExampleControllerTest {
     @Before
     public void setUp() throws Exception {
         initMocks(this);
-        subject = new ExampleController(personRepository, weatherClient);
+        exampleController = new ExampleController(personRepository, weatherClient);
     }
 
     @Test
     public void shouldReturnHelloWorld() throws Exception {
-        assertThat(subject.hello(), is("Hello World!"));
+        assertThat(exampleController.hello(), is("Hello World!"));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ExampleControllerTest {
         Person name = new Person("Suraj", "Nayak");
         given(personRepository.findByLastName("Nayak")).willReturn(Optional.of(name));
 
-        String greeting = subject.hello("Nayak");
+        String greeting = exampleController.hello("Nayak");
 
         assertThat(greeting, is("Hello Suraj Nayak!"));
     }
@@ -52,26 +52,26 @@ public class ExampleControllerTest {
     public void shouldTellIfPersonIsUnknown() throws Exception {
         given(personRepository.findByLastName(anyString())).willReturn(Optional.empty());
 
-        String greeting = subject.hello("Nayak");
+        String greeting = exampleController.hello("Nayak");
 
         assertThat(greeting, is("Who is this 'Nayak' you're talking about?"));
     }
 
     @Test
     public void shouldReturnWeatherClientResult() throws Exception {
-        WeatherResponse weatherResponse = new WeatherResponse("Hamburg, 8°C raining");
+        WeatherResponse weatherResponse = new WeatherResponse("Pune, 8°C raining");
         given(weatherClient.fetchWeather()).willReturn(Optional.of(weatherResponse));
 
-        String weather = subject.weather();
+        String weather = exampleController.weather();
 
-        assertThat(weather, is("Hamburg, 8°C raining"));
+        assertThat(weather, is("Pune, 8°C raining"));
     }
 
     @Test
     public void shouldReturnErrorMessageIfWeatherClientIsUnavailable() throws Exception {
         given(weatherClient.fetchWeather()).willReturn(Optional.empty());
 
-        String weather = subject.weather();
+        String weather = exampleController.weather();
 
         assertThat(weather, is("Sorry, I couldn't fetch the weather for you :("));
     }
