@@ -158,7 +158,7 @@
                     <serviceProviders>
                         <!-- You can define as many as you need, but each must have a unique name -->
                         <serviceProvider>
-                            <name>BusService</name>
+                            <name>API Service</name>
                             <!-- All the provider properties are optional, and have sensible defaults (shown below) -->
                             <protocol>http</protocol>
                             <host>localhost</host>
