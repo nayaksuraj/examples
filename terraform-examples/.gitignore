@@ -1,0 +1,7 @@
+.idea
+*.iml
+.terraform
+.terraform/*
+terraform.tfstate
+*plan*
+*plan
